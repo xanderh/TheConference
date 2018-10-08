@@ -1,0 +1,68 @@
+﻿@model TheConference.Models.Booking
+@{
+    Layout = "_Layout";
+}
+<link rel="stylesheet" type="text/css" href="/styles/speakers.css">
+<link rel="stylesheet" type="text/css" href="/styles/speakers_responsive.css">
+<div class="speakers" style="width:40%; margin-left:auto; margin-right:auto; padding-bottom:15px; padding-top:15px;">
+    <fieldset>
+        <form asp-action="NewBooking" asp-controller="Speakers">
+            @Html.ValidationSummary()
+
+            <input type="hidden" asp-for="EventId" />
+            <p>
+                @Html.LabelFor(x => x.FirstName) <br />
+                @Html.EditorFor(x => x.FirstName)<br />
+                @Html.ValidationMessageFor(x => x.FirstName)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.LastName) <br />
+                @Html.EditorFor(x => x.LastName)<br />
+                @Html.ValidationMessageFor(x => x.LastName)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.Email) <br />
+                @Html.EditorFor(x => x.Email)<br />
+                @Html.ValidationMessageFor(x => x.Email)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.PhoneNumber) <br />
+                @Html.EditorFor(x => x.PhoneNumber)<br />
+                @Html.ValidationMessageFor(x => x.PhoneNumber)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.NumberOfTickets) <br />
+                @Html.EditorFor(x => x.NumberOfTickets)<br />
+                @Html.ValidationMessageFor(x => x.NumberOfTickets)
+            </p>
+            <p>
+                <button type="submit">Create Booking</button>
+            </p>
+        </form>
+    </fieldset>
+</div>
+
+@section HeaderImage {
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/images/speakers.jpg" data-speed="0.8"></div>
+}
+
+@section Header{
+
+    <div class="home_content_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content d-flex flex-row align-items-end justify-content-start">
+                        <div class="current_page">Speakers</div>
+                        <div class="breadcrumbs ml-auto">
+                            <ul>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li>Speakers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

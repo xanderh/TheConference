@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TheConference.Models;
 
 namespace TheConference
 {
@@ -30,6 +32,11 @@ namespace TheConference
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<DataContext>(options =>
+            {
+                var connectionString = Configuration.GetConnectionString("DefaultConnection");
+                options.UseSqlServer(connectionString);
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -45,6 +52,8 @@ namespace TheConference
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseMiddleware<BanRussiaMiddleware>();
 
             app.UseStaticFiles();
             app.UseCookiePolicy();

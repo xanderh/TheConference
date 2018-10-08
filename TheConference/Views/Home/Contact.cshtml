@@ -1,17 +1,100 @@
-﻿@{
-    ViewData["Title"] = "Contact";
+﻿<link rel="stylesheet" type="text/css" href="/styles/contact.css">
+<link rel="stylesheet" type="text/css" href="/styles/contact_responsive.css">
+<!-- Contact -->
+
+<div class="contact">
+    <div class="contact_map_background">
+
+        <!-- Contact Map -->
+        <div class="contact_map">
+
+            <!-- Google Map -->
+            <div class="map">
+                <div id="google_map" class="google_map">
+                    <div class="map_container">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="contact_form_container">
+                    <div class="contact_form_title">Get in touch</div>
+                    <form action="#" class="contact_form" id="contact_form">
+                        <input type="text" class="contact_input" placeholder="Name" required="required">
+                        <input type="email" class="contact_input" placeholder="E-mail" required="required">
+                        <input type="text" class="contact_input" placeholder="Subject" required="required">
+                        <textarea name="contact_textarea" id="contact_textarea" class="contact_textarea contact_input" placeholder="Message" required="required"></textarea>
+                        <button class="button contact_button"><span>Send Message</span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <div class="contact_info_container">
+                    <div>
+                        <a href="#">
+                            <div class="logo_container d-flex flex-row align-items-start justify-content-start">
+                                <div class="logo_image"><div><img src="/images/logo.png" alt=""></div></div>
+                                <div class="logo_content">
+                                    <div id="logo_text" class="logo_text logo_text_not_ie">The Conference</div>
+                                    <div class="logo_sub">August 25, 2018 - Miami Marina Bay</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="contact_info_list_container">
+                        <ul class="contact_info_list">
+                            <li class="d-flex flex-row align-items-start justify-content-start">
+                                <div><div class="contact_info_icon text-center"><img src="/images/contact_1.png" alt=""></div></div>
+                                <div class="contact_info_text">Blvd Libertad, 34 m05200 Los Angeles, CA</div>
+                            </li>
+                            <li class="d-flex flex-row align-items-start justify-content-start">
+                                <div><div class="contact_info_icon text-center"><img src="/images/contact_2.png" alt=""></div></div>
+                                <div class="contact_info_text">0034 37483 2445 322</div>
+                            </li>
+                            <li class="d-flex flex-row align-items-start justify-content-start">
+                                <div><div class="contact_info_icon text-center"><img src="/images/contact_3.png" alt=""></div></div>
+                                <div class="contact_info_text">hello@company.com</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact_info_pin"><div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section HeaderImage {
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/images/contact.jpg" data-speed="0.8"></div>
+
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+@section Header {
+        <div class="home_content_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content d-flex flex-row align-items-end justify-content-start">
+                            <div class="current_page">Contact</div>
+                            <div class="breadcrumbs ml-auto">
+                                <ul>
+                                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                    <li>Contact</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+    <script src="/js/contact.js"></script>
+}

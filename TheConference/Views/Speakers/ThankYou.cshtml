@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_Layout";
+}
+<link rel="stylesheet" type="text/css" href="/styles/speakers.css">
+<link rel="stylesheet" type="text/css" href="/styles/speakers_responsive.css">
+<div class="speakers" style="width:40%; margin-left:auto; margin-right:auto; padding-bottom:15px; padding-top:15px;">
+    <h1>Thank you for signing up to the conference!</h1>
+</div>
+
+@section HeaderImage {
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/images/speakers.jpg" data-speed="0.8"></div>
+}
+
+@section Header{
+
+    <div class="home_content_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content d-flex flex-row align-items-end justify-content-start">
+                        <div class="current_page">Speakers</div>
+                        <div class="breadcrumbs ml-auto">
+                            <ul>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li>Speakers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
