@@ -22,10 +22,8 @@ namespace TheConference.Models
 
         public async Task InvokeAsync(HttpContext context)
         {
-            string ip = context.Request.Host.Host;
-            string country = RegionInfo.CurrentRegion.EnglishName;
 
-            if (country.ToLower() != "russia")
+            if (!_bannedIp.Contains(context.Request.Host.Host))
             {
                 await _next(context);
             } else
