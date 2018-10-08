@@ -23,12 +23,12 @@ namespace TheConference.Models
         public async Task InvokeAsync(HttpContext context)
         {
 
-            if (!_bannedIp.Contains(context.Request.Host.Host))
-            {
-                await _next(context);
-            } else
+            if (context.Connection.RemoteIpAddress.ToString().StartsWith("2.60") && context.Connection.RemoteIpAddress.ToString().StartsWith("2.61") && context.Connection.RemoteIpAddress.ToString().StartsWith("2.62") && context.Connection.RemoteIpAddress.ToString().StartsWith("2.63"))
             {
                 context.Response.StatusCode = 401;
+            } else
+            {
+                await _next(context);
 
             }
 
